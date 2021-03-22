@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const externalApi = require("./External/external-api");
+const validator = require("./validator");
 
 let port = 4000;
 
@@ -8,8 +9,11 @@ app.listen(port, function () {
     console.log(`node server listening on ${port}`);
 });
 
-app.get('/forecastByZip', (req, res) => {
-    externalApi.getCordinates('08863').then(response => {
+app.get('/forecastByZip/:zip', (req, res) => {
+    if (!validator.isValidZipCode(req.params.zip)) {
+        res.status(400).send("Invalid zip code");
+    }
+    externalApi.getCordinates(req.params.zip).then(response => {
         let latitude = 0.0, longitude = 0.0;
         if (response
             && response.data
@@ -56,13 +60,3 @@ app.get('/forecastByZip', (req, res) => {
         res.status(500).send(`An error occurred while calling getCordinates ${err}`);
     });
 });
-
-const massageData = (periods) => {
-    let forecastStr = ''
-    if (periods && periods.length > 0) {
-        periods.forEach(x => {
-            forecastStr.concat(`${x.name}, ${x.startTime}`);
-        });
-    }
-    return forecastStr;
-}
