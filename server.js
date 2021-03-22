@@ -12,6 +12,7 @@ app.listen(port, function () {
 app.get('/forecastByZip/:zip', (req, res) => {
     if (!validator.isValidZipCode(req.params.zip)) {
         res.status(400).send("Invalid zip code");
+        return;
     }
     externalApi.getCordinates(req.params.zip).then(response => {
         let latitude = 0.0, longitude = 0.0;
@@ -54,6 +55,11 @@ app.get('/forecastByZip/:zip', (req, res) => {
             });
         }
         else {
+            //console.log(response.data);
+            if (response && response.data && response.data.nhits == 0) {
+                res.status(404).send(`Unable to find cordinates for given zip ${req.params.zip}`);
+                return;
+            }
             res.status(500).send(`getCordinates did not return proper response`);
         }
     }).catch(err => {
