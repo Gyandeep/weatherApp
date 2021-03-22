@@ -1,0 +1,16 @@
+{
+  "name": "frontstack",
+  "version": "1.0.0",
+  "description": "nodejs app",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "devRun": "node server.js"
+  },
+  "author": "GD",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "express": "^4.17.1"
+  }
+}
