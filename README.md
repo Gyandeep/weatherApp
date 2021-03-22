@@ -8,6 +8,7 @@ localhost url: http://localhost:4000
 sample url: http://localhost:4000/forecastbyzip/08863 (Accepts text/plain & application/json. by default returns content in json)
 
 sample response (json):
+```json
 [
   {
     "number": 1,
@@ -220,4 +221,4 @@ sample response (json):
     "detailedForecast": "A chance of rain showers. Mostly cloudy, with a low around 43. Chance of precipitation is 40%."
   }
 ]
-
+```
