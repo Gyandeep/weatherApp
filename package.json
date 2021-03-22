@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "devRun": "node server.js"
+    "dev": "node server.js"
   },
   "author": "GD",
   "license": "ISC",
