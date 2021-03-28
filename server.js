@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const externalApi = require("./External/external-api");
 const validator = require("./validator");
+const formatter = require('./formatter');
 
 let port = 4000;
 
@@ -29,10 +30,9 @@ app.get('/forecastByZip/:zip', (req, res) => {
                     console.log(`forecast Url ${points.data.properties.forecast}`);
                     externalApi.getForecast(points.data.properties.forecast).then(forecast => {
                         let periods = forecast.data.properties.periods;
-                        //console.log(periods);
                         res.format({
                             'text/plain': function () {
-                                res.status(200).send(periods)
+                                res.status(200).send(formatter.formatTextResponse(periods))
                             },
                             'application/json': function () {
                                 res.status(200).send(periods)
@@ -42,7 +42,6 @@ app.get('/forecastByZip/:zip', (req, res) => {
                                 res.status(200).send(periods)
                             }
                         });
-                        //res.send(forecastStr);
                     }).catch(err => {
                         res.status(500).send(`An error occurred while calling getForecast ${err}`);
                     });
