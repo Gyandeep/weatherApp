@@ -2,6 +2,7 @@
 This repo demonstrates nodeJS API for weather forecast by zip code
 
 Run Locally: npm run dev
+Run Tests locally: npm run test
 
 localhost url: http://localhost:4000
 
