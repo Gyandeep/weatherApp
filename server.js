@@ -19,6 +19,7 @@ app.get('/forecastByZip/:zip', (req, res) => {
         let latitude = 0.0, longitude = 0.0;
         if (response
             && response.data
+            && response.data.nhits > 0
             && response.data.records
             && response.data.records.length > 0
             && response.data.records[0].fields) {
