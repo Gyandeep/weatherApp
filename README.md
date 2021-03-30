@@ -7,6 +7,23 @@ localhost url: http://localhost:4000
 
 sample url: http://localhost:4000/forecastbyzip/08863 (Accepts text/plain & application/json. by default returns content in json)
 
+sample response (text/plain):
+```html
+ Today, 2021-03-28:            69 F  10 to 15 mph S   Rain Showers                                  
+ Tonight, 2021-03-28:          41 F  15 mph W         Showers And Thunderstorms then Mostly Cloudy  
+ Monday, 2021-03-29:           56 F  15 to 20 mph W   Sunny                                         
+ Monday Night, 2021-03-29:     36 F  0 to 10 mph W    Mostly Clear                                  
+ Tuesday, 2021-03-30:          63 F  0 to 10 mph S    Sunny                                         
+ Tuesday Night, 2021-03-30:    46 F  5 to 10 mph S    Partly Cloudy                                 
+ Wednesday, 2021-03-31:        65 F  5 to 10 mph S    Rain Showers Likely                           
+ Wednesday Night, 2021-03-31:  42 F  10 mph SW        Rain Showers                                  
+ Thursday, 2021-04-01:         50 F  10 to 20 mph NW  Rain Showers Likely                           
+ Thursday Night, 2021-04-01:   28 F  15 to 20 mph NW  Slight Chance Rain Showers then Partly Cloudy 
+ Friday, 2021-04-02:           42 F  15 mph NW        Mostly Sunny                                  
+ Friday Night, 2021-04-02:     29 F  5 to 15 mph NW   Mostly Clear                                  
+ Saturday, 2021-04-03:         53 F  5 to 10 mph W    Mostly Sunny                                  
+ Saturday Night, 2021-04-03:   39 F  5 to 10 mph SW   Partly Cloudy                                
+```
 sample response (json):
 ```json
 [
